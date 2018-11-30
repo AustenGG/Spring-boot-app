@@ -1,9 +1,6 @@
 package com.example.springboot.demo2;
 
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,4 +30,9 @@ public class BookingController {
                 .collect(Collectors.toList());
     }
 
+    @RequestMapping(value = "/create", method = RequestMethod.POST)
+    public List<HotelBooking> create(@RequestBody HotelBooking hotelBooking){
+        bookings.add(hotelBooking);
+        return bookings;
+    }
 }
